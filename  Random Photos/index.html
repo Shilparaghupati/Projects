@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Photos Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>📸 Random Photos Generator</h1>
+
+    <div class="controls">
+        <select id="category">
+            <option value="nature">🌿 Nature</option>
+            <option value="motivation">💡 Motivation</option>
+            <option value="anime">🌸 Anime</option>
+            <option value="home">🏠 Homes</option>
+        </select>
+
+        <button onclick="loadPhotos()">Generate Photos</button>
+    </div>
+
+    <div id="gallery" class="gallery"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anime Pics Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- SLIDE 1 -->
+    <div id="slide1" class="slide active">
+        <h2>Anime Pics Generator</h2>
+        <button onclick="goToOptions()">Get Anime</button>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div id="slide2" class="slide">
+        <h2>Select Character</h2>
+
+        <select id="category">
+            <option value="waifu">Waifu</option>
+            <option value="neko">Neko (Cat Girl)</option>
+            <option value="shinobu">Shinobu</option>
+            <option value="megumin">Megumin</option>
+        </select>
+
+        <button onclick="generateAnime()">Generate Anime</button>
+
+        <div class="image-box">
+            <img id="animeImg"
+                 src="https://via.placeholder.com/300x300?text=Anime+Image"
+                 alt="Anime Image">
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

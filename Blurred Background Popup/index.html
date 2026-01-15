@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup with Video Background</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Video -->
+<video id="bgVideo" autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support video.
+</video>
+
+<!-- Main Page Content -->
+<div class="page" id="pageContent">
+    <h1>Welcome</h1>
+    <p>Click below to enter your details</p>
+    <button onclick="openPopup()">Open Popup</button>
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popup">
+    <div class="popup">
+        <h2>User Details</h2>
+
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="email" id="email" placeholder="Enter your Gmail">
+
+        <button onclick="submitForm()">Submit</button>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

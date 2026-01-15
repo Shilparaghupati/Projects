@@ -1,0 +1,55 @@
+/* Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Video styling */
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Overlay content */
+.overlay {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.45); /* dark overlay */
+    color: white;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.overlay button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: #ff7a18;
+    color: white;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #e96b10;
+}

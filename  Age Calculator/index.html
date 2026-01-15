@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        Modify the values and click the Calculate button
+    </div>
+
+    <div class="row">
+        <label>Date of Birth</label>
+        <select id="dobMonth"></select>
+        <select id="dobDay"></select>
+        <select id="dobYear"></select>
+    </div>
+
+    <div class="row">
+        <label>Age at the Date of</label>
+        <select id="toMonth"></select>
+        <select id="toDay"></select>
+        <select id="toYear"></select>
+    </div>
+
+    <button onclick="calculateAge()">Calculate ▶</button>
+
+    <div id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

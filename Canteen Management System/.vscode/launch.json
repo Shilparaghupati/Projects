@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CanteenWeb - Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5102",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "CanteenWeb - Edge",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:5102",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

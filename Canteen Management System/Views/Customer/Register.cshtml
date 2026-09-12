@@ -1,0 +1,441 @@
+@model CanteenWeb.Models.Customer
+
+@{
+    ViewData["Title"] = "Customer Registration";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Customer Registration</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+       body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url('/images/signup-bg.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
+       .registration-container {
+    width: 450px;
+    max-width: 95%;
+    margin: 40px auto;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.30);
+
+    backdrop-filter: blur(4px);
+}
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        /* PASSWORD BOX */
+
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper input {
+            padding-right: 50px;
+        }
+
+        .password-eye {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            border: none;
+            background: transparent;
+
+            font-size: 19px;
+            cursor: pointer;
+
+            padding: 5px;
+
+            color: #666;
+
+            z-index: 5;
+        }
+
+        .password-eye:hover {
+            color: #ff6500;
+        }
+
+        /* HIDE EDGE / IE BUILT-IN PASSWORD EYE */
+
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-ms-clear {
+            display: none;
+        }
+
+        input[type="password"]::-webkit-credentials-auto-fill-button {
+            visibility: hidden;
+            display: none !important;
+        }
+
+        /* REGISTER BUTTON */
+
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+
+            background: #28a745;
+
+            color: white;
+
+            border: none;
+            border-radius: 7px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background: #218838;
+        }
+
+        /* ERROR */
+
+        .error {
+            color: red;
+            font-size: 13px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .validation-summary {
+            color: red;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        /* LOGIN LINK */
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .password-hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @@media (max-width: 600px) {
+
+            .registration-container {
+                margin: 20px auto;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="registration-container">
+
+    <h1>Customer Registration</h1>
+
+    <form asp-controller="Customer"
+          asp-action="Register"
+          method="post">
+
+        <div asp-validation-summary="ModelOnly"
+             class="validation-summary">
+        </div>
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label asp-for="Name">
+                Name
+            </label>
+
+            <input asp-for="Name"
+                   type="text"
+                   placeholder="Enter your name"
+                   required />
+
+            <span asp-validation-for="Name"
+                  class="error">
+            </span>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label asp-for="Email">
+                Email
+            </label>
+
+            <input asp-for="Email"
+                   type="email"
+                   placeholder="example@gmail.com"
+                   required />
+
+            <span asp-validation-for="Email"
+                  class="error">
+            </span>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+            <label asp-for="Phone">
+                Phone Number
+            </label>
+
+            <input asp-for="Phone"
+                   type="text"
+                   placeholder="Enter 10 digit phone number"
+                   maxlength="10"
+                   inputmode="numeric"
+                   required />
+
+            <span asp-validation-for="Phone"
+                  class="error">
+            </span>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="form-group">
+
+            <label asp-for="Address">
+                Address
+            </label>
+
+            <input asp-for="Address"
+                   type="text"
+                   placeholder="Enter your address"
+                   required />
+
+            <span asp-validation-for="Address"
+                  class="error">
+            </span>
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+            <label asp-for="Password">
+                Password
+            </label>
+
+            <div class="password-wrapper">
+
+                <input asp-for="Password"
+                       type="password"
+                       id="password"
+                       placeholder="Enter your password"
+                       required />
+
+                <button type="button"
+                        class="password-eye"
+                        onclick="togglePassword('password', this)"
+                        aria-label="Show or hide password">
+
+                    👁️
+
+                </button>
+
+            </div>
+
+            <div class="password-hint">
+                Minimum 8 characters with uppercase,
+                lowercase, number and special character.
+            </div>
+
+            <span asp-validation-for="Password"
+                  class="error">
+            </span>
+
+        </div>
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="form-group">
+
+            <label>
+                Confirm Password
+            </label>
+
+            <div class="password-wrapper">
+
+                <input type="password"
+                       id="confirmPassword"
+                       name="confirmPassword"
+                       placeholder="Confirm your password"
+                       required />
+
+                <button type="button"
+                        class="password-eye"
+                        onclick="togglePassword('confirmPassword', this)"
+                        aria-label="Show or hide confirm password">
+
+                    👁️
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <button type="submit"
+                class="register-btn">
+
+            Register
+
+        </button>
+
+    </form>
+
+
+    <!-- LOGIN -->
+
+    <div class="login-link">
+
+        Already have an account?
+
+        <a href="/Customer/Login">
+            Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- PASSWORD SHOW / HIDE -->
+
+<script>
+
+    function togglePassword(inputId, button) {
+
+        const passwordInput =
+            document.getElementById(inputId);
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            button.textContent = "🙈";
+
+        }
+        else {
+
+            passwordInput.type = "password";
+
+            button.textContent = "👁️";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

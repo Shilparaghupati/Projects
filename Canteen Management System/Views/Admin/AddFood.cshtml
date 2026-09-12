@@ -1,0 +1,213 @@
+@model CanteenWeb.Models.FoodItem
+
+@{
+    ViewData["Title"] = "Add Food";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-4">
+                        🍴 Add Food Item
+                    </h2>
+
+                    <form asp-controller="Admin"
+                          asp-action="AddFood"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+
+                        <!-- FOOD NAME -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="Name"
+                                   class="form-label">
+                                Food Name
+                            </label>
+
+                            <input asp-for="Name"
+                                   class="form-control"
+                                   placeholder="Enter food name"
+                                   required />
+
+                            <span asp-validation-for="Name"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="Category"
+                                   class="form-label">
+                                Category
+                            </label>
+
+                            <select asp-for="Category"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    -- Select Category --
+                                </option>
+
+                                <option value="Breakfast">
+                                    Breakfast
+                                </option>
+
+                                <option value="Lunch">
+                                    Lunch
+                                </option>
+
+                                <option value="Snacks">
+                                    Snacks
+                                </option>
+
+                                <option value="Drinks">
+                                    Drinks
+                                </option>
+
+                                <option value="Desserts">
+                                    Desserts
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                            <span asp-validation-for="Category"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="Description"
+                                   class="form-label">
+                                Description
+                            </label>
+
+                            <textarea asp-for="Description"
+                                      class="form-control"
+                                      rows="4"
+                                      placeholder="Enter food description">
+                            </textarea>
+
+                        </div>
+
+
+                        <!-- PRICE -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="Price"
+                                   class="form-label">
+                                Price (₹)
+                            </label>
+
+                            <input asp-for="Price"
+                                   type="number"
+                                   step="0.01"
+                                   min="0"
+                                   class="form-control"
+                                   placeholder="Enter price"
+                                   required />
+
+                            <span asp-validation-for="Price"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+
+                        <!-- IMAGE URL -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="ImageUrl"
+                                   class="form-label">
+                                Image URL
+                            </label>
+
+                            <input asp-for="ImageUrl"
+                                   class="form-control"
+                                   placeholder="Optional image URL" />
+
+                        </div>
+
+
+                        <!-- AVAILABILITY -->
+
+                        <div class="form-check mb-4">
+
+                            <input asp-for="IsAvailable"
+                                   class="form-check-input" />
+
+                            <label asp-for="IsAvailable"
+                                   class="form-check-label">
+
+                                Food is available
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-success flex-fill">
+
+                                ➕ Add Food
+
+                            </button>
+
+                            <a asp-controller="Admin"
+                               asp-action="ManageMenu"
+                               class="btn btn-secondary flex-fill">
+
+                                ← Cancel
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
